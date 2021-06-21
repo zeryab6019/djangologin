@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+
+{% extends 'appFive/appFive.html' %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="jumbotron">
+  {% if registered %}
+    <h1> Thankyou for registering</h1>
+  {% else %}
+    <h1> Register here </h1>
+    <h3> Fill out the form</h3>
+    <form class="" enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      {{ profile_form.as_p }}
+      <input type="submit" method = "POST" name="" value="Register">
+    </form>
+  {% endif %}
+
+</div>
+
+{% endblock %}
